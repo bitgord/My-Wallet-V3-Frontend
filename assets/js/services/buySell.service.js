@@ -27,6 +27,8 @@ function buySell ($rootScope, $timeout, $q, $state, $uibModal, $uibModalStack, W
     if (!_buySellMyWallet) {
       _buySellMyWallet = new MyWalletBuySell(MyWallet.wallet, $rootScope.buySellDebug);
       if (_buySellMyWallet.exchanges) { // Absent if 2nd password set
+        _buySellMyWallet.exchanges.coinify.api.production = $rootScope.isProduction;
+        _buySellMyWallet.exchanges.coinify.api.testnet = $rootScope.network === 'testnet';
         _buySellMyWallet.exchanges.sfox.api.production = $rootScope.isProduction;
 
         // This can safely be done asynchrnously, because:

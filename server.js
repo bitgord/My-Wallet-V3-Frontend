@@ -52,7 +52,7 @@ app.use(function (req, res, next) {
         (webSocketURL || 'wss://ws.blockchain.info'),
         (apiDomain || 'https://api.blockchain.info'),
         'https://api.sfox.com',
-        'https://app-api.coinify.com',
+        `https://app-api.${production ? '' : 'sandbox.'}coinify.com`,
         `https://api.${production ? '' : 'staging.'}sfox.com`,
         `https://quotes.${production ? '' : 'staging.'}sfox.com`,
         `https://sfox-kyc${production ? '' : 'test'}.s3.amazonaws.com`
